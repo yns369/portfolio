@@ -82,7 +82,7 @@ jobs:
           server: ftp.sc3ruda0434.universe.wf
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
-          local-dir: ./dist/
+          local-dir: ./
           server-dir: /home/sc3ruda0434/jellyify.com/portfolio/
       
 
