@@ -45,6 +45,14 @@ jobs:
     needs: combined
     runs-on: ubuntu-latest
     steps:
+      - name: download artifcat
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-files
+
+      - name: print files
+        run: ls
+
       - name: deplod app to o2switch
         run: echo "deploing..."
   
