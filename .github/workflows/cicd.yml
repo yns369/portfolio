@@ -65,6 +65,24 @@ jobs:
         run: echo ${{needs.combined.outputs.script-file}}
       - name: deplod app to o2switch
         run: echo "deploing..."
-  
+
+      # - name: deploy via SFTP
+      #   uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      #   with:
+      #     host: ${{ secrets.SSH_HOST }}
+      #     username: ${{ secrets.SSH_USERNAME }}
+      #     password: ${{ secrets.SSH_PASSWORD }}
+      #     local_path: ./dist/*
+      #     remote_path: /path/to/your/site
+      #     sftp_only: true
+
+      - name: deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.sc3ruda0434.universe.wf
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./dist/
+          server-dir: /home/sc3ruda0434/jellyify.com/portfolio/
       
 
