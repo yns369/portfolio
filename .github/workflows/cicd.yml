@@ -1,0 +1,28 @@
+name: CI & CD
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  name: unit test 
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Get the code
+      uses: 'actions/checkout@v4'
+
+    - name: Uses nodejs v22
+      uses: 'actions/setup-node@v4'
+      with:
+        node-version: 22
+        cache: npm
+    
+    - name: install dependencies
+      run: npm ci 
+    
+    # shoud run unit test
+    # run end2end test
+    
+      
+
