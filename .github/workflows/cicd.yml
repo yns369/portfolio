@@ -83,6 +83,6 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           local-dir: ./
-          server-dir: /home/sc3ruda0434/jellyify.com/portfolio/
+          server-dir: ./
       
 
