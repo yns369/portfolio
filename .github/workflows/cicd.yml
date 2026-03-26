@@ -43,7 +43,7 @@ jobs:
 
   deploy:
     needs: combined
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - name: deplod app to o2switch
         run: echo "deploing..."
