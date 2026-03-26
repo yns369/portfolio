@@ -2,6 +2,9 @@
 defineProps({
   projects: Array,
 })
+
+import linkImg from '../assets/link.png'
+
 </script>
 
 <template>
@@ -22,7 +25,7 @@ defineProps({
           :class="['project-card reveal', `delay-${i}`]"
         >
           <!-- Card header -->
-          <div  style="background: url(/src/assets/link.png) no-repeat; background-size: cover; background-position: 0 -11px;height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <div  :style="`background: url(${linkImg}); no-repeat; background-size: cover; background-position: 0 -11px;height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;`">
           <!-- <div class="bg-red-300" style="height:160px;background:var(--surface2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"> -->
             <!-- <div class="bg-grid" style="position:absolute;inset:0;opacity:.15;"></div> -->
             <!-- <div style="position:relative;z-index:1;" v-html="proj.icon"></div> -->
