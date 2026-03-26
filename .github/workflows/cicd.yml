@@ -5,24 +5,46 @@ on:
       - main 
 
 jobs:
-  name: unit test 
-  runs-on: ubuntu-latest
+  combined:
+    name: Test & build
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Get the code
-      uses: 'actions/checkout@v4'
+    steps:
+      - name: Get the code
+        uses: 'actions/checkout@v4'
 
-    - name: Uses nodejs v22
-      uses: 'actions/setup-node@v4'
-      with:
-        node-version: 22
-        cache: npm
-    
-    - name: install dependencies
-      run: npm ci 
-    
-    # shoud run unit test
-    # run end2end test
-    
+      - name: Uses nodejs v20
+        uses: 'actions/setup-node@v4'
+        with:
+          node-version: 20
+          cache: npm
+      
+      - name: install dependencies
+        run: npm ci 
+      
+      # - name: Run unit tests
+      #   run: npm test
+
+      # - name: Run end-to-end tests
+      #   run: npx cypress run
+
+      - name: build the app
+        run: npm run build
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: |
+            dist
+            package.json
+            
+
+  deploy:
+    needs: combined
+    runs-on: ubuntu-lastest
+    steps:
+      - name: deplod app to o2switch
+        run: echo "deploing..."
+  
       
 
