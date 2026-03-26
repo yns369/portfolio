@@ -8,6 +8,8 @@ jobs:
   combined:
     name: Test & build
     runs-on: ubuntu-latest
+    outputs:
+      script-file: ${{ steps.publish.outputs.gg-step-file-output }} #getting step context
     # env:
     #   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # modern usage
     steps:
@@ -31,7 +33,12 @@ jobs:
       #   run: npx cypress run
 
       - name: build the app
-        run: npm run build
+        run: yarn build
+      # getting generated file dnamicly
+      - name: publish filename
+        id: publish
+        run: find dist/assets/*.js -type f -execdir echo 'gg-step-file-output={}' >> $GITHUB_OUTPUT ';'
+
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -54,6 +61,8 @@ jobs:
       - name: print files
         run: ls
 
+      - name: get dynamic filename
+        run: echo ${{needs.combined.outputs.script-file}}
       - name: deplod app to o2switch
         run: echo "deploing..."
   
