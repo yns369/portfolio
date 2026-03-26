@@ -1,4 +1,6 @@
 <script setup>
+import linkPdf from '../assets/few-works.pdf'
+
 defineProps({
   formSent: Boolean,
   form: Object,
@@ -24,7 +26,7 @@ defineEmits(['send'])
 
           <div style="display:flex;flex-direction:column;gap:24px;margin-bottom:40px;">
             <!-- Email -->
-            <a href="mailto:younes.keraressi@gmail.com" style="display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;">
+            <a href="mailto:younes.keraressi369@gmail.com" style="display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;">
               <div class="contact-icon">
                 <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
@@ -33,7 +35,7 @@ defineEmits(['send'])
               </div>
               <div>
                 <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;">Email</div>
-                <div style="font-size:15px;font-weight:500;">younes.keraressi@gmail.com</div>
+                <div style="font-size:15px;font-weight:500;">younes.keraressi369@gmail.com</div>
               </div>
             </a>
 
@@ -68,9 +70,25 @@ defineEmits(['send'])
           <!-- Social links -->
           <div style="display:flex;gap:12px;">
             <a
-              href="https://www.linkedin.com/in/younes.keraressi"
+              href="https://www.linkedin.com/in/youneskeraressi"
               target="_blank"
-              class="social-btn"
+              class="social-btn relative group"
+              style="padding:14px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);transition:all .2s;display:flex;"
+              @mouseover="e => { e.currentTarget.style.borderColor='var(--primary)'; e.currentTarget.style.color='var(--primary)' }"
+              @mouseout="e => { e.currentTarget.style.borderColor='var(--border)'; e.currentTarget.style.color='var(--text)' }"
+            >
+            <span class="absolute cursor-pointer px-1 py-0 rounded-full bg-[var(--primary-dim)] bg-[var(--primary)] text-#333 text-[10px] font-bold tracking-[0.03em] -top-1.5 group-hover:hidden">OLD</span>
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect width="4" height="12" x="2" y="9"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/younes-keraressi369"
+              target="_blank"
+              class="social-btn relative"
               style="padding:14px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);transition:all .2s;display:flex;"
               @mouseover="e => { e.currentTarget.style.borderColor='var(--primary)'; e.currentTarget.style.color='var(--primary)' }"
               @mouseout="e => { e.currentTarget.style.borderColor='var(--border)'; e.currentTarget.style.color='var(--text)' }"
@@ -81,8 +99,11 @@ defineEmits(['send'])
                 <circle cx="4" cy="4" r="2"/>
               </svg>
             </a>
+
+              <!-- href="https://bit.ly/369ysk" -->
+               <!-- href="https://drive.google.com/file/d/12uOfs8yKU-rkc-4UVX1MqQqvyQKFljUM/view" -->
             <a
-              href="https://bit.ly/369ysk"
+              :href="linkPdf"
               target="_blank"
               class="social-btn"
               style="padding:14px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);transition:all .2s;display:flex;"
