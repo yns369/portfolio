@@ -1,10 +1,10 @@
 <script setup>
+import linkImg from '../assets/link.png'
+import linkPdf from '../assets/few-works.pdf'
+
 defineProps({
   projects: Array,
-})
-
-import linkImg from '../assets/link.png'
-
+});
 </script>
 
 <template>
@@ -44,7 +44,7 @@ import linkImg from '../assets/link.png'
 
    <div class="mt-24 flex items-center justify-center">
      <div class="cursor-pointer inline-block px-3 py-1 rounded-full bg-[var(--primary-dim)] text-[var(--primary)] text-[13px] font-semibold tracking-[0.03em] border-2 border-transparent hover:border-[var(--primary)]">
-      LOAD MORE
+      <a :href="linkPdf" target="_blank">LOAD MORE</a> 
 </div>
    </div>
   </section>
