@@ -8,16 +8,17 @@ jobs:
   combined:
     name: Test & build
     runs-on: ubuntu-latest
-
+    # env:
+    #   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # modern usage
     steps:
       - name: Get the code
         uses: 'actions/checkout@v4'
 
-      - name: Uses nodejs v20
-        uses: 'actions/setup-node@v4'
-        with:
-          node-version: 20
-          cache: npm
+      # - name: Uses nodejs v20
+      #   uses: 'actions/setup-node@v4'
+      #   with:
+      #     node-version: 20
+      #     cache: npm
       
       - name: install dependencies
         run: npm ci 
